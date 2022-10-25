@@ -4,12 +4,13 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
 
 const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const submitHandler = event => {
     event.preventDefault();
@@ -35,6 +36,8 @@ const Register = () => {
 
         // form reset
         form.reset();
+
+        navigate("/");
       })
       .catch(error => setError(error.message));
   };

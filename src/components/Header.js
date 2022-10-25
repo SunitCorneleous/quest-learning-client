@@ -69,23 +69,22 @@ const Header = () => {
               </button>
               <>
                 {user ? (
-                  <>
-                    <>
-                      <img
-                        src={user?.photoURL}
-                        title={user?.displayName}
-                        alt="user"
-                        className="rounded-pill border border-warning"
-                        style={{ width: "55px", cursor: "pointer" }}
-                      />
-                    </>
+                  <div className="ms-4">
+                    <img
+                      src={user?.photoURL}
+                      title={user?.displayName}
+                      alt="user"
+                      className="rounded-pill border border-warning"
+                      style={{ width: "55px", cursor: "pointer" }}
+                    />
+
                     <button
                       onClick={logOutHandler}
                       className="btn btn-danger m-2"
                     >
                       Log Out
                     </button>
-                  </>
+                  </div>
                 ) : (
                   <>
                     <Link
