@@ -6,3 +6,5 @@
 
 - React JS
 - Tailwind
+- React Router
+- Firebase
