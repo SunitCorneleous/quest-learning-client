@@ -23,7 +23,7 @@ const LeftSideNav = () => {
           <Link
             to={`/courses/categories/${category.id}`}
             key={category.id}
-            className="list-group-item list-group-item-action list-group-item-warning my-2 text-center"
+            className="list-group-item list-group-item-action list-group-item-primary my-2 text-center"
           >
             {category.name}
           </Link>

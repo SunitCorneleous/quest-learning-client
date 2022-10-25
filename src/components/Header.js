@@ -52,27 +52,29 @@ const Header = () => {
             {/*  */}
             <Nav>
               <button
-                className={`btn ${
+                className={`btn m-2 ${
                   dark === "light" ? "btn-dark" : "btn-light"
                 } mx-3`}
                 onClick={toggleDark}
               >
                 {dark === "light" ? "Dark" : "Light"}
               </button>
-              <Button
-                variant={`${
-                  dark === "light" ? "outline-dark" : "outline-light"
+              <Link
+                className={`m-2 btn ${
+                  dark === "light" ? "btn-outline-dark" : "btn-outline-light"
                 }`}
-                className="m-2"
+                to="/login"
               >
                 Log In
-              </Button>
-              <Button
-                variant={`${dark === "light" ? "dark" : "light"}`}
-                className="m-2"
+              </Link>
+              <Link
+                className={`m-2 btn ${
+                  dark === "light" ? "btn-dark" : "btn-light"
+                }`}
+                to="/signup"
               >
                 Sign up
-              </Button>
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
