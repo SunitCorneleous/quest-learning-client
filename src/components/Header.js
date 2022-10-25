@@ -3,6 +3,8 @@ import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Link, NavLink } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 const Header = () => {
   const [dark, setDark] = useState("light");
@@ -16,20 +18,63 @@ const Header = () => {
   };
   return (
     <header>
-      <Navbar bg={dark} variant={dark}>
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        bg={dark}
+        variant={dark}
+        className="py-4"
+      >
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-          </Nav>
-          <button
-            className={`btn ${dark === "light" ? "btn-dark" : "btn-light"}`}
-            onClick={toggleDark}
-          >
-            {dark === "light" ? "Dark" : "Light"}
-          </button>
+          {/* site logo */}
+          <Link className="navbar-brand" to="/">
+            Quest Learning
+          </Link>
+
+          {/* navigation links */}
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mx-auto">
+              <NavLink className="nav-link" to="/" end>
+                Home
+              </NavLink>
+              <NavLink className="nav-link" to="/courses">
+                Courses
+              </NavLink>
+              <NavLink className="nav-link" to="/blog">
+                Blog
+              </NavLink>
+              <NavLink className="nav-link" to="/faq">
+                FAQ
+              </NavLink>
+            </Nav>
+
+            {/*  */}
+            <Nav>
+              <button
+                className={`btn ${
+                  dark === "light" ? "btn-dark" : "btn-light"
+                } mx-3`}
+                onClick={toggleDark}
+              >
+                {dark === "light" ? "Dark" : "Light"}
+              </button>
+              <Button
+                variant={`${
+                  dark === "light" ? "outline-dark" : "outline-light"
+                }`}
+                className="m-2"
+              >
+                Log In
+              </Button>
+              <Button
+                variant={`${dark === "light" ? "dark" : "light"}`}
+                className="m-2"
+              >
+                Sign up
+              </Button>
+            </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
     </header>
