@@ -1,8 +1,9 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Course = ({ course }) => {
-  const { title, thumbnail, details, rating } = course;
+  const { id, title, thumbnail, details, rating } = course;
 
   return (
     <div
@@ -19,12 +20,17 @@ const Course = ({ course }) => {
         <h3 className="text-center fs-3">{title}</h3>
         <p>{details.slice(0, 85) + "..."}</p>
 
-        <div
-          className="d-flex align-items-center justify-content-between bg-light rounded-pill px-3 ms-auto"
-          style={{ width: "65px" }}
-        >
-          <p className="m-0 text-info fw-bold fs-5">{rating}</p>
-          <FaStar className="text-warning"></FaStar>
+        <div className="d-flex justify-content-between">
+          <Link to={`/course-details/${id}`} className="btn btn-primary">
+            See Details
+          </Link>
+          <div
+            className="d-flex align-items-center justify-content-between bg-light rounded-pill px-3"
+            style={{ width: "65px" }}
+          >
+            <p className="m-0 text-info fw-bold fs-5">{rating}</p>
+            <FaStar className="text-warning"></FaStar>
+          </div>
         </div>
       </div>
     </div>
