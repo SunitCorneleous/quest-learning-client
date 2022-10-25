@@ -23,11 +23,11 @@ const Header = () => {
         expand="lg"
         bg={dark}
         variant={dark}
-        className="py-4"
+        className="py-3"
       >
         <Container>
           {/* site logo */}
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand fs-3 fw-bold" to="/">
             Quest Learning
           </Link>
 
