@@ -23,10 +23,7 @@ const Register = () => {
     setError("");
 
     createUser(email, password)
-      .then(result => {
-        const user = result.user;
-        console.log(user);
-
+      .then(() => {
         // form reset
         form.reset();
       })

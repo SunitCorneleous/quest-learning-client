@@ -8,3 +8,4 @@
 - Bootstrap
 - React Router
 - Firebase
+- React Icons

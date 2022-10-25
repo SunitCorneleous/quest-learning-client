@@ -24,8 +24,6 @@ const Header = () => {
       .catch(error => console.error("error: ", error));
   };
 
-  console.log(user);
-
   return (
     <header>
       <Navbar
@@ -72,7 +70,7 @@ const Header = () => {
               <>
                 {user ? (
                   <>
-                    <p>{user.email}</p>
+                    <p>{user?.email}</p>
                     <button
                       onClick={logOutHandler}
                       className="btn btn-danger m-2"

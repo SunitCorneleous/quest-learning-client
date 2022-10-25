@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthProvider";
 
 const LogIn = () => {
+  const { signInUser } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const submitHandler = event => {
     event.preventDefault();
@@ -16,7 +20,18 @@ const LogIn = () => {
 
     setError("");
 
-    console.log(email, password);
+    signInUser(email, password)
+      .then(() => {
+        // form reset
+        form.reset();
+
+        // navigate to route
+        navigate("/");
+      })
+      .catch(error => {
+        console.error("error: ", error);
+        setError(error.message);
+      });
   };
   return (
     <div className="container">
