@@ -39,7 +39,7 @@ const LogIn = () => {
         <h3 className="text-center">Log In</h3>
         <Form onSubmit={submitHandler} className="mx-auto">
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Email Address</Form.Label>
             <Form.Control
               type="email"
               name="email"

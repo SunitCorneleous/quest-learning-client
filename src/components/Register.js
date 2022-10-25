@@ -47,11 +47,11 @@ const Register = () => {
         <h3 className="text-center">Sign Up</h3>
         <Form onSubmit={submitHandler} className="mx-auto">
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Your name</Form.Label>
+            <Form.Label>Your Full Name</Form.Label>
             <Form.Control
               type="text"
               name="name"
-              placeholder="Enter your name"
+              placeholder="Enter your full name"
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -64,7 +64,7 @@ const Register = () => {
           </Form.Group>
           {/* Email  */}
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Email Address</Form.Label>
             <Form.Control
               type="email"
               name="email"
