@@ -70,7 +70,15 @@ const Header = () => {
               <>
                 {user ? (
                   <>
-                    <p>{user?.email}</p>
+                    <>
+                      <img
+                        src={user?.photoURL}
+                        title={user?.displayName}
+                        alt="user"
+                        className="rounded-pill border border-warning"
+                        style={{ width: "55px", cursor: "pointer" }}
+                      />
+                    </>
                     <button
                       onClick={logOutHandler}
                       className="btn btn-danger m-2"
