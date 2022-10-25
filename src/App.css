@@ -26,6 +26,11 @@
   width: 50%;
 }
 
+.login {
+  background-color: #008000 !important;
+  border: none !important;
+}
+
 @media screen and (max-width: 768px) {
   .courses {
     grid-template-columns: repeat(1, 1fr);

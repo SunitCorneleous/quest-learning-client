@@ -48,12 +48,12 @@ const LogIn = () => {
           </Form.Text>
 
           <p>
-            Already Have an account? <Link to="/signup">sign up</Link>
+            Don't have an account? <Link to="/signup">sign up</Link>
           </p>
 
           <Button
             variant="primary"
-            className="mx-auto d-block w-25 fs-5"
+            className="mx-auto d-block w-25 fs-5 login"
             type="submit"
           >
             Log In

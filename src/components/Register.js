@@ -1,11 +1,14 @@
 import React from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
   const [error, setError] = useState("");
 
   const submitHandler = event => {
@@ -19,7 +22,15 @@ const Register = () => {
 
     setError("");
 
-    console.log(name, photoUrl, email, password);
+    createUser(email, password)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+
+        // form reset
+        form.reset();
+      })
+      .catch(error => setError(error.message));
   };
   return (
     <div className="container">
@@ -68,7 +79,7 @@ const Register = () => {
           </Form.Text>
 
           <p>
-            Already Have an account? <Link to="/login">log in</Link>
+            Already have an account? <Link to="/login">log in</Link>
           </p>
 
           <Button
@@ -82,11 +93,11 @@ const Register = () => {
         <div className="my-3">
           <button className="btn btn-outline-dark w-100 d-flex align-items-center justify-content-center fs-5">
             <FaGoogle></FaGoogle>
-            <span className="d-block ms-2">Continue with Google</span>
+            <span className="d-block ms-2">Sign Up with Google</span>
           </button>
           <button className="btn btn-outline-dark w-100 mt-3 d-flex align-items-center justify-content-center fs-5">
             <FaGithub></FaGithub>
-            <span className="d-block ms-2">Continue with Github</span>
+            <span className="d-block ms-2">Sign Up with Github</span>
           </button>
         </div>
       </div>

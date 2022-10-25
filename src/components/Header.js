@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link, NavLink } from "react-router-dom";
-import Button from "react-bootstrap/Button";
+import { AuthContext } from "../contexts/AuthProvider";
 
 const Header = () => {
   const [dark, setDark] = useState("light");
+  const { user, logOut } = useContext(AuthContext);
 
   const toggleDark = () => {
     if (dark === "light") {
@@ -16,6 +17,15 @@ const Header = () => {
       setDark("light");
     }
   };
+
+  const logOutHandler = () => {
+    logOut()
+      .then(() => {})
+      .catch(error => console.error("error: ", error));
+  };
+
+  console.log(user);
+
   return (
     <header>
       <Navbar
@@ -34,7 +44,7 @@ const Header = () => {
           {/* navigation links */}
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mx-auto">
+            <Nav className="mx-auto fs-5">
               <NavLink className="nav-link" to="/" end>
                 Home
               </NavLink>
@@ -59,22 +69,40 @@ const Header = () => {
               >
                 {dark === "light" ? "Dark" : "Light"}
               </button>
-              <Link
-                className={`m-2 btn ${
-                  dark === "light" ? "btn-outline-dark" : "btn-outline-light"
-                }`}
-                to="/login"
-              >
-                Log In
-              </Link>
-              <Link
-                className={`m-2 btn ${
-                  dark === "light" ? "btn-dark" : "btn-light"
-                }`}
-                to="/signup"
-              >
-                Sign up
-              </Link>
+              <>
+                {user ? (
+                  <>
+                    <p>{user.email}</p>
+                    <button
+                      onClick={logOutHandler}
+                      className="btn btn-danger m-2"
+                    >
+                      Log Out
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      className={`m-2 btn ${
+                        dark === "light"
+                          ? "btn-outline-dark"
+                          : "btn-outline-light"
+                      }`}
+                      to="/login"
+                    >
+                      Log In
+                    </Link>
+                    <Link
+                      className={`m-2 btn ${
+                        dark === "light" ? "btn-dark" : "btn-light"
+                      }`}
+                      to="/signup"
+                    >
+                      Sign up
+                    </Link>
+                  </>
+                )}
+              </>
             </Nav>
           </Navbar.Collapse>
         </Container>
