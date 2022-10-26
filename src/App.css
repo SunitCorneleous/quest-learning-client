@@ -26,6 +26,10 @@
   color: #568eea !important;
 }
 
+h3 {
+  color: #000;
+}
+
 /* home */
 .home h2 {
   font-size: 3.8rem;

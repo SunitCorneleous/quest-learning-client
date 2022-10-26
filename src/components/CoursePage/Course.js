@@ -17,7 +17,7 @@ const Course = ({ course }) => {
         alt="course"
       />
       <div className="my-3 px-2">
-        <h3 className="text-center fs-3">{title}</h3>
+        <h3 className="text-center fs-3 text-dark">{title}</h3>
         <p>{details.slice(0, 85) + "..."}</p>
 
         <div className="d-flex justify-content-between">

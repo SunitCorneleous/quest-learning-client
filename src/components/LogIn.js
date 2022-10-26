@@ -78,7 +78,7 @@ const LogIn = () => {
   return (
     <div className="container">
       <div className="border p-4 my-5 rounded-4 bg-light shadow mx-auto form">
-        <h3 className="text-center">Log In</h3>
+        <h3 className="text-center text-dark">Log In</h3>
         <Form onSubmit={submitHandler} className="mx-auto">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email Address</Form.Label>

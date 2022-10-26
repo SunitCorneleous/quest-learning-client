@@ -12,8 +12,12 @@ const Courses = () => {
         <Col lg="3">
           <LeftSideNav></LeftSideNav>
         </Col>
-        <Col lg="9" className="px-3 courses">
-          <Outlet></Outlet>
+        <Col lg="9" className="px-3">
+          <h1 className="text-center mb-4">Explore our courses</h1>
+          <hr />
+          <div className="courses">
+            <Outlet></Outlet>
+          </div>
         </Col>
       </Row>
     </Container>

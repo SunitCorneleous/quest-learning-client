@@ -88,7 +88,7 @@ const Register = () => {
   return (
     <div className="container">
       <div className="border p-4 my-5 rounded-4 bg-light shadow mx-auto form">
-        <h3 className="text-center">Sign Up</h3>
+        <h3 className="text-center text-dark">Sign Up</h3>
         <Form onSubmit={submitHandler} className="mx-auto">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Your Full Name</Form.Label>
@@ -137,8 +137,9 @@ const Register = () => {
 
           <Button
             variant="primary"
-            className="mx-auto d-block w-25 fs-5"
+            className="mx-auto d-block fs-5"
             type="submit"
+            style={{ width: "100px" }}
           >
             Sign Up
           </Button>

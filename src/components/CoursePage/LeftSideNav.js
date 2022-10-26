@@ -15,7 +15,7 @@ const LeftSideNav = () => {
 
   return (
     <div>
-      <h3 className="text-center" style={{ fontSize: "1.5rem" }}>
+      <h3 className="text-center text-dark" style={{ fontSize: "1.5rem" }}>
         Categories
       </h3>
       <ul className="list-group">
