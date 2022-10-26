@@ -7,11 +7,11 @@ const CheckoutRoute = () => {
   return (
     <div className="container my-5">
       <h1>Checkout:</h1>
-      <div className="d-flex mt-5 bg-light rounded shadow-sm">
+      <div className="d-flex flex-column flex-lg-row mt-5 w-100  w-lg-25 bg-light rounded shadow-sm">
         <img
           src={course.thumbnail}
           alt="course"
-          style={{ width: "300px" }}
+          style={{ width: "100%", height: "400px" }}
           className="rounded"
         />
         <div className="p-3">
