@@ -12,6 +12,10 @@ const Header = () => {
   const [dark, setDark] = useState("light");
   const { user, logOut } = useContext(AuthContext);
 
+  let activeStyle = {
+    color: "#00008B",
+  };
+
   const toggleDark = () => {
     if (dark === "light") {
       setDark("dark");
@@ -32,7 +36,7 @@ const Header = () => {
         <Container>
           {/* site logo */}
           <Link
-            className="navbar-brand d-flex align-items-center fw-bold"
+            className="navbar-brand d-flex align-items-center fw-bold logo"
             to="/"
           >
             <GiChest style={{ fontSize: "3rem" }}></GiChest>
@@ -45,16 +49,33 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto fs-5">
-              <NavLink className="nav-link" to="/" end>
+              <NavLink
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                className="nav-link"
+                to="/"
+                end
+              >
                 Home
               </NavLink>
-              <NavLink className="nav-link" to="/courses">
+              <NavLink
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                className="nav-link"
+                to="/courses"
+              >
                 Courses
               </NavLink>
-              <NavLink className="nav-link" to="/blog">
+              <NavLink
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                className="nav-link"
+                to="/blog"
+              >
                 Blog
               </NavLink>
-              <NavLink className="nav-link" to="/faq">
+              <NavLink
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                className="nav-link"
+                to="/faq"
+              >
                 FAQ
               </NavLink>
             </Nav>
@@ -82,7 +103,7 @@ const Header = () => {
 
                     <button
                       onClick={logOutHandler}
-                      className="btn btn-danger m-2"
+                      className="logout-btn px-2 m-2"
                       style={{ fontSize: "1.5rem" }}
                     >
                       Logout

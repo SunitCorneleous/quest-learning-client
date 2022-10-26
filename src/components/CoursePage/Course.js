@@ -7,7 +7,7 @@ const Course = ({ course }) => {
 
   return (
     <div
-      className="rounded p-2 shadow-sm course-card"
+      className="rounded shadow-sm course-card"
       style={{ minHeight: "300px" }}
     >
       <img
@@ -16,7 +16,7 @@ const Course = ({ course }) => {
         style={{ width: "100%", height: "50%" }}
         alt="course"
       />
-      <div className="my-3">
+      <div className="my-3 px-2">
         <h3 className="text-center fs-3">{title}</h3>
         <p>{details.slice(0, 85) + "..."}</p>
 

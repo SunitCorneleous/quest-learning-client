@@ -32,7 +32,7 @@ const CourseDetails = () => {
           scale={0.8}
         >
           {({ toPdf }) => (
-            <button className="btn btn-danger my-4" onClick={toPdf}>
+            <button className="logout-btn my-4 px-3 py-2" onClick={toPdf}>
               PDF
             </button>
           )}
@@ -47,6 +47,8 @@ const CourseDetails = () => {
         <div className="py-4 details p-4 rounded">
           <p className="fs-4">{course.details}</p>
         </div>
+
+        {/* course details info */}
         <div className="d-flex flex-column flex-lg-row align-items-center justify-content-between mt-2">
           {/* badge */}
           <div
@@ -59,10 +61,14 @@ const CourseDetails = () => {
             <FaStar style={{ fontSize: "2rem" }}></FaStar>
           </div>
 
+          <p className="fs-3 fw-semibold px-3 py-2 price-badge my-auto rounded">
+            Price: {course.price} $
+          </p>
+
           {/* premium access */}
           <Link
             to={`/checkout/${course.id}`}
-            className="btn btn-outline-warning fw-bold fs-4 d-flex align-items-center"
+            className="btn-premium fw-bold fs-4 d-flex align-items-center"
           >
             <FaCrown></FaCrown> <span className="ms-2">Get premium access</span>
           </Link>

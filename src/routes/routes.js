@@ -11,6 +11,7 @@ import Main from "../layout/Main";
 import LogIn from "./../components/LogIn";
 import Register from "./../components/Register";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../components/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/courses/${params.id}`),
+      },
+      {
+        path: "/*",
+        element: <ErrorPage></ErrorPage>,
       },
     ],
   },
