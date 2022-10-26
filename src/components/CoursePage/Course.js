@@ -7,7 +7,7 @@ const Course = ({ course }) => {
 
   return (
     <div
-      className="border border-warning rounded p-2 shadow-sm course-card"
+      className="rounded p-2 shadow-sm course-card"
       style={{ minHeight: "300px" }}
     >
       <img

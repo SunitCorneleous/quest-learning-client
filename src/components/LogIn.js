@@ -5,9 +5,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
+
+const googleProvider = new GoogleAuthProvider();
 
 const LogIn = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, signInUserWithGoogle } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -35,6 +38,23 @@ const LogIn = () => {
         setError(error.message);
       });
   };
+
+  const googleLogInHandler = () => {
+    signInUserWithGoogle(googleProvider)
+      .then(result => {
+        const user = result.user;
+
+        console.log(user);
+
+        // navigate to route
+        navigate(from, { replace: true });
+      })
+      .catch(error => {
+        setError(error.message);
+        console.error(error);
+      });
+  };
+
   return (
     <div className="container">
       <div className="border p-4 my-5 rounded-4 bg-light shadow mx-auto form">
@@ -78,7 +98,10 @@ const LogIn = () => {
         </Form>
 
         <div className="my-3">
-          <button className="btn btn-outline-dark w-100 d-flex align-items-center justify-content-center fs-5">
+          <button
+            onClick={googleLogInHandler}
+            className="btn btn-outline-dark w-100 d-flex align-items-center justify-content-center fs-5"
+          >
             <FaGoogle></FaGoogle>
             <span className="d-block ms-2">Continue with Google</span>
           </button>
