@@ -7,13 +7,18 @@ const CourseDetails = () => {
 
   return (
     <div className="container mt-3 mb-4 course-details">
+      <div className="d-flex justify-content-between align-items-center flex-column flex-lg-row">
+        <h2 className="text-center fs-1 mb-4">
+          {course.title} beginner to advanced
+        </h2>
+        <button className="btn btn-danger my-4">PDF</button>
+      </div>
       <img
         src={course?.banner}
         alt="banner"
         className="img-fluid mx-auto d-block rounded"
       />
       <div className="py-3">
-        <h2 className="text-center fs-1 mb-4">{course.title}</h2>
         <div className="py-4 details p-4 rounded">
           <p className="fs-4">{course.details}</p>
         </div>

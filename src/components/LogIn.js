@@ -110,8 +110,9 @@ const LogIn = () => {
 
           <Button
             variant="primary"
-            className="mx-auto d-block w-25 fs-5 login"
+            className="mx-auto d-block fs-5 login"
             type="submit"
+            style={{ width: "150px" }}
           >
             Log In
           </Button>
