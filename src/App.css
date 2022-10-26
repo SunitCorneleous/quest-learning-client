@@ -1,10 +1,25 @@
-.App {
+.light {
   background-color: #ebf6ff;
+  transition: 1s;
+}
+
+.dark {
+  background-color: #5d5d5d;
+  transition: 1s;
 }
 
 /* header */
 .header {
   background-color: #ebf6ff;
+  transition: 1s;
+}
+
+.header-dark {
+  background-color: #3e3936;
+  transition: 1s;
+}
+.header-dark a {
+  color: #fff;
 }
 
 .logo {
@@ -14,13 +29,43 @@
 /* home */
 .home h2 {
   font-size: 3.8rem;
+  color: #000;
 }
+
 .home h3 {
   font-size: 2rem;
+  color: #000;
 }
+
 .home p {
   font-size: 1.8rem;
   color: #7f7771;
+}
+
+.home-dark h2 {
+  font-size: 3.8rem;
+}
+
+.home-dark h3 {
+  font-size: 2rem;
+}
+
+.home-dark p {
+  font-size: 1.8rem;
+}
+
+.home-dark p,
+h2,
+h3 {
+  color: #fff;
+}
+
+.home-card-dark {
+  background-color: #8181814e;
+}
+
+.home-card {
+  background-color: #fff;
 }
 
 .courses {
@@ -104,6 +149,16 @@
 /* footer */
 .footer {
   background-color: #fff;
+}
+
+.footer-dark p,
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-dark {
+  background-color: #3e3936;
 }
 
 @media screen and (max-width: 768px) {

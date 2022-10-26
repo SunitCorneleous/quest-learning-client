@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaHtml5, FaCss3, FaReact } from "react-icons/fa";
 import { IoLogoJavascript, IoLogoFirebase } from "react-icons/io5";
+import { ThemeContext } from "./../contexts/ThemeProvider";
 
 const Home = () => {
+  const { dark } = useContext(ThemeContext);
+
   return (
-    <div className="home">
+    <div className={`${dark === "dark" ? "home-dark" : "home"}`}>
       <section className="py-3 my-3 container text-center">
         <h2 className="fw-bold">Start your quest with Quest Learning today</h2>
         <p>
@@ -24,15 +27,15 @@ const Home = () => {
           <IoLogoFirebase></IoLogoFirebase>
         </div>
 
-        <p style={{ fontSize: "1.8rem", color: "#7f7771" }}>Find Out More!</p>
+        <p style={{ fontSize: "1.8rem" }}>Find Out More!</p>
         <Link className="btn p-3 fs-5" to="/courses">
           Our Courses
         </Link>
       </section>
 
       <section
-        className="py-5 mx-auto my-3 container rounded shadow-sm"
-        style={{ backgroundColor: "#fff" }}
+        className={`py-5 mx-auto my-3 container rounded shadow-sm 
+        ${dark === "dark" ? "home-card-dark" : "home-card"}`}
       >
         <h3 className="w-75 text-center mx-auto">
           Sign up today to find out more about our courses and get premium

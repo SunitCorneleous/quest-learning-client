@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -7,21 +6,14 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { GiChest } from "react-icons/gi";
 import { AiOutlineLogout } from "react-icons/ai";
+import { ThemeContext } from "../../contexts/ThemeProvider";
 
 const Header = () => {
-  const [dark, setDark] = useState("light");
   const { user, logOut } = useContext(AuthContext);
+  const { dark, toggleDark } = useContext(ThemeContext);
 
   let activeStyle = {
     color: "#00008B",
-  };
-
-  const toggleDark = () => {
-    if (dark === "light") {
-      setDark("dark");
-    } else {
-      setDark("light");
-    }
   };
 
   const logOutHandler = () => {
@@ -32,7 +24,11 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar collapseOnSelect expand="lg" className="py-3 header">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        className={`py-3 ${dark === "light" ? "header" : "header-dark"}`}
+      >
         <Container>
           {/* site logo */}
           <Link
@@ -80,16 +76,13 @@ const Header = () => {
               </NavLink>
             </Nav>
 
-            {/*  */}
             <Nav>
-              <button
-                className={`btn m-2 ${
-                  dark === "light" ? "btn-dark" : "btn-light"
-                } mx-3`}
-                onClick={toggleDark}
-              >
+              {/* toggle theme */}
+              <button className="btn" onClick={toggleDark}>
                 {dark === "light" ? "Dark" : "Light"}
               </button>
+
+              {/* user */}
               <>
                 {user ? (
                   <div className="ms-4">
@@ -111,6 +104,7 @@ const Header = () => {
                     </button>
                   </div>
                 ) : (
+                  // log in or sign up
                   <>
                     <Link
                       className={`m-2 btn ${
