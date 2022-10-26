@@ -7,7 +7,6 @@ const Main = () => {
   return (
     <>
       <Header></Header>
-      <hr className="mx-auto" style={{ width: "90%" }} />
       <Outlet></Outlet>
       <Footer></Footer>
     </>

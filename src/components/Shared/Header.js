@@ -84,7 +84,7 @@ const Header = () => {
 
               {/* user */}
               <>
-                {user ? (
+                {user?.uid ? (
                   <div className="ms-4">
                     <img
                       src={user?.photoURL}
