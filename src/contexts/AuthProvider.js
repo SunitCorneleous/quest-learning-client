@@ -47,6 +47,12 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
 
+  // sign in with github
+  const signInUserWithGithub = provider => {
+    setLoading(true);
+    return signInWithPopup(auth, provider);
+  };
+
   // add user name and image
   const updateUserProfile = userProfile => {
     return updateProfile(auth.currentUser, userProfile);
@@ -65,6 +71,7 @@ const AuthProvider = ({ children }) => {
     updateUserProfile,
     logOut,
     signInUserWithGoogle,
+    signInUserWithGithub,
   };
 
   return (

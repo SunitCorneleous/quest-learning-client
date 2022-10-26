@@ -5,12 +5,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 const LogIn = () => {
-  const { signInUser, signInUserWithGoogle } = useContext(AuthContext);
+  const { signInUser, signInUserWithGoogle, signInUserWithGithub } =
+    useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -39,8 +41,25 @@ const LogIn = () => {
       });
   };
 
+  // google sign in handler
   const googleLogInHandler = () => {
     signInUserWithGoogle(googleProvider)
+      .then(result => {
+        const user = result.user;
+
+        console.log(user);
+
+        // navigate to route
+        navigate(from, { replace: true });
+      })
+      .catch(error => {
+        setError(error.message);
+        console.error(error);
+      });
+  };
+  // github sign in handler
+  const githubLogInHandler = () => {
+    signInUserWithGithub(githubProvider)
       .then(result => {
         const user = result.user;
 
@@ -105,7 +124,10 @@ const LogIn = () => {
             <FaGoogle></FaGoogle>
             <span className="d-block ms-2">Continue with Google</span>
           </button>
-          <button className="btn btn-outline-dark w-100 mt-3 d-flex align-items-center justify-content-center fs-5">
+          <button
+            onClick={githubLogInHandler}
+            className="btn btn-outline-dark w-100 mt-3 d-flex align-items-center justify-content-center fs-5"
+          >
             <FaGithub></FaGithub>
             <span className="d-block ms-2">Continue with Github</span>
           </button>
