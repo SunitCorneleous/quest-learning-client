@@ -21,13 +21,11 @@ const CourseDetails = () => {
       style={{ width: "100vw" }}
     >
       <div className="d-flex justify-content-between align-items-center flex-column flex-lg-row">
-        <h2 className="text-center fs-1 mb-4">
-          {course.title} beginner to advanced
-        </h2>
+        <h2 className="text-center fs-1 mb-4">{course.title}</h2>
 
         <ReactToPdf
           targetRef={ref}
-          filename={`${course.title} beginner to advanced.pdf`}
+          filename={`${course.title} beginner to advanced (Quest Learning).pdf`}
           options={options}
           x={0.5}
           y={0.5}
@@ -63,7 +61,7 @@ const CourseDetails = () => {
 
           {/* premium access */}
           <Link
-            to="/checkout"
+            to={`/checkout/${course.id}`}
             className="btn btn-outline-warning fw-bold fs-4 d-flex align-items-center"
           >
             <FaCrown></FaCrown> <span className="ms-2">Get premium access</span>

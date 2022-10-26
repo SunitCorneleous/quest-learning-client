@@ -5,6 +5,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { GiChest } from "react-icons/gi";
+import { AiOutlineLogout } from "react-icons/ai";
 
 const Header = () => {
   const [dark, setDark] = useState("light");
@@ -35,8 +37,14 @@ const Header = () => {
       >
         <Container>
           {/* site logo */}
-          <Link className="navbar-brand fs-3 fw-bold" to="/">
-            Quest Learning
+          <Link
+            className="navbar-brand d-flex align-items-center fw-bold"
+            to="/"
+          >
+            <GiChest style={{ fontSize: "3rem" }}></GiChest>
+            <span className="m-0" style={{ fontSize: "2rem" }}>
+              Quest Learning
+            </span>
           </Link>
 
           {/* navigation links */}
@@ -81,8 +89,10 @@ const Header = () => {
                     <button
                       onClick={logOutHandler}
                       className="btn btn-danger m-2"
+                      style={{ fontSize: "1.5rem" }}
                     >
-                      Log Out
+                      Logout
+                      <AiOutlineLogout className="ms-2"></AiOutlineLogout>
                     </button>
                   </div>
                 ) : (
