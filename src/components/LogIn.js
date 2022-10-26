@@ -44,11 +44,7 @@ const LogIn = () => {
   // google sign in handler
   const googleLogInHandler = () => {
     signInUserWithGoogle(googleProvider)
-      .then(result => {
-        const user = result.user;
-
-        console.log(user);
-
+      .then(() => {
         // navigate to route
         navigate(from, { replace: true });
       })
