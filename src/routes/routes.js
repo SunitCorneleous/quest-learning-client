@@ -45,10 +45,12 @@ export const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
+        loader: () => fetch("blog.json"),
       },
       {
         path: "/faq",
         element: <Faq></Faq>,
+        loader: () => fetch('faq.json')
       },
       {
         path: "/course-details/:id",
