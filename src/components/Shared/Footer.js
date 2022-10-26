@@ -14,7 +14,7 @@ const Footer = () => {
           <p className="col-md-4 mb-0">&copy; 2022 Company, Inc</p>
 
           <Link
-            href="/"
+            to="/"
             className="col-md-4 fw-bold d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
           >
             <GiChest style={{ fontSize: "3rem" }}></GiChest>
@@ -25,28 +25,28 @@ const Footer = () => {
 
           <ul className="nav col-md-4 justify-content-end">
             <li className="nav-item">
-              <Link href="#" className="nav-link px-2 text-muted fs-5">
+              <Link to="/" className="nav-link px-2 text-muted fs-5">
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="#" className="nav-link px-2 text-muted fs-5">
-                Features
+              <Link to="/courses" className="nav-link px-2 text-muted fs-5">
+                Courses
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="#" className="nav-link px-2 text-muted fs-5">
-                Pricing
+              <Link to="/blog" className="nav-link px-2 text-muted fs-5">
+                Blog
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="#" className="nav-link px-2 text-muted fs-5">
-                FAQs
+              <Link to="/faq" className="nav-link px-2 text-muted fs-5">
+                FAQ
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="#" className="nav-link px-2 text-muted fs-5">
-                About
+              <Link to="/login" className="nav-link px-2 text-muted fs-5">
+                Log in
               </Link>
             </li>
           </ul>
