@@ -6,9 +6,18 @@ import Form from "react-bootstrap/Form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+
+const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 const Register = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const {
+    createUser,
+    updateUserProfile,
+    signInUserWithGoogle,
+    signInUserWithGithub,
+  } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -41,6 +50,41 @@ const Register = () => {
       })
       .catch(error => setError(error.message));
   };
+
+  // google sign in handler
+  const googleLogInHandler = () => {
+    signInUserWithGoogle(googleProvider)
+      .then(result => {
+        const user = result.user;
+
+        console.log(user);
+
+        // navigate to route
+        navigate("/");
+      })
+      .catch(error => {
+        setError(error.message);
+        console.error(error);
+      });
+  };
+
+  // github sign in handler
+  const githubLogInHandler = () => {
+    signInUserWithGithub(githubProvider)
+      .then(result => {
+        const user = result.user;
+
+        console.log(user);
+
+        // navigate to route
+        navigate("/");
+      })
+      .catch(error => {
+        setError(error.message);
+        console.error(error);
+      });
+  };
+
   return (
     <div className="container">
       <div className="border p-4 my-5 rounded-4 bg-light shadow mx-auto form">
@@ -100,11 +144,17 @@ const Register = () => {
           </Button>
         </Form>
         <div className="my-3">
-          <button className="btn btn-outline-dark w-100 d-flex align-items-center justify-content-center fs-5">
+          <button
+            onClick={googleLogInHandler}
+            className="btn btn-outline-dark w-100 d-flex align-items-center justify-content-center fs-5"
+          >
             <FaGoogle></FaGoogle>
             <span className="d-block ms-2">Sign Up with Google</span>
           </button>
-          <button className="btn btn-outline-dark w-100 mt-3 d-flex align-items-center justify-content-center fs-5">
+          <button
+            onClick={githubLogInHandler}
+            className="btn btn-outline-dark w-100 mt-3 d-flex align-items-center justify-content-center fs-5"
+          >
             <FaGithub></FaGithub>
             <span className="d-block ms-2">Sign Up with Github</span>
           </button>

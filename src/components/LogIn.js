@@ -57,6 +57,7 @@ const LogIn = () => {
         console.error(error);
       });
   };
+
   // github sign in handler
   const githubLogInHandler = () => {
     signInUserWithGithub(githubProvider)
