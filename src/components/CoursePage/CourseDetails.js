@@ -21,7 +21,7 @@ const CourseDetails = () => {
       style={{ width: "100vw" }}
     >
       <div className="d-flex justify-content-between align-items-center flex-column flex-lg-row">
-        <h2 className="text-center fs-1 mb-4">{course.title}</h2>
+        <h2 className="text-center text-dark fs-1 mb-4">{course.title}</h2>
 
         <ReactToPdf
           targetRef={ref}
@@ -68,7 +68,7 @@ const CourseDetails = () => {
           {/* premium access */}
           <Link
             to={`/checkout/${course.id}`}
-            className="btn-premium fw-bold fs-4 d-flex align-items-center"
+            className="btn-premium mt-3 fw-bold fs-4 d-flex align-items-center"
           >
             <FaCrown></FaCrown> <span className="ms-2">Get premium access</span>
           </Link>

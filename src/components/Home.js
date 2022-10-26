@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { FaHtml5, FaCss3, FaReact } from "react-icons/fa";
 import { IoLogoJavascript, IoLogoFirebase } from "react-icons/io5";
 import { ThemeContext } from "./../contexts/ThemeProvider";
+import { AuthContext } from "../contexts/AuthProvider";
 
 const Home = () => {
   const { dark } = useContext(ThemeContext);
+  const { user } = useContext(AuthContext);
 
   return (
     <div className={`${dark === "dark" ? "home-dark" : "home"}`}>
@@ -44,15 +46,20 @@ const Home = () => {
 
         <div className="d-flex flex-column align-item-center justify-content-center mt-5">
           <Link
-            className="btn mx-auto fs-3"
+            to={user ? "/" : "/signup"}
             style={{ width: "300px" }}
-            to="/signup"
+            className="btn mx-auto fs-3"
           >
             Sign up today
           </Link>
+
           <p className="text-center mt-5">Already have an account?</p>
           <Link className="mx-auto " to="/login">
-            <button className="btn-outline fs-3" style={{ width: "300px" }}>
+            <button
+              disabled={user}
+              className="btn-outline fs-3"
+              style={{ width: "300px" }}
+            >
               Log In
             </button>
           </Link>

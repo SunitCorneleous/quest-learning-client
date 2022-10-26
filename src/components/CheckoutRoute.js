@@ -15,7 +15,7 @@ const CheckoutRoute = () => {
           className="rounded"
         />
         <div className="p-3">
-          <h3>Course Name: {course.title}</h3>
+          <h3 className="text-dark">Course Name: {course.title}</h3>
           <p className="fs-4">Rating: {course.rating}</p>
           <p>{course.details}</p>
           <p className="fw-bold fs-4">Price: {course.price} $</p>
