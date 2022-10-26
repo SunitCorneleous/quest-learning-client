@@ -146,14 +146,14 @@ const Register = () => {
         <div className="my-3">
           <button
             onClick={googleLogInHandler}
-            className="btn btn-outline-dark w-100 d-flex align-items-center justify-content-center fs-5"
+            className="btn-outline py-1 w-100 d-flex align-items-center justify-content-center fs-5"
           >
             <FaGoogle></FaGoogle>
             <span className="d-block ms-2">Sign Up with Google</span>
           </button>
           <button
             onClick={githubLogInHandler}
-            className="btn btn-outline-dark w-100 mt-3 d-flex align-items-center justify-content-center fs-5"
+            className="btn-outline py-1 w-100 d-flex align-items-center justify-content-center fs-5 mt-3"
           >
             <FaGithub></FaGithub>
             <span className="d-block ms-2">Sign Up with Github</span>

@@ -28,13 +28,7 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar
-        collapseOnSelect
-        expand="lg"
-        bg={dark}
-        variant={dark}
-        className="py-3"
-      >
+      <Navbar collapseOnSelect expand="lg" className="py-3 header">
         <Container>
           {/* site logo */}
           <Link
@@ -99,9 +93,7 @@ const Header = () => {
                   <>
                     <Link
                       className={`m-2 btn ${
-                        dark === "light"
-                          ? "btn-outline-dark"
-                          : "btn-outline-light"
+                        dark === "light" ? "btn-outline" : "btn-outline"
                       }`}
                       to="/login"
                     >
