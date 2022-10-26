@@ -1,17 +1,44 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { FaStar, FaCrown } from "react-icons/fa";
+import ReactToPdf from "react-to-pdf";
 
 const CourseDetails = () => {
   const course = useLoaderData();
 
+  const ref = useRef();
+
+  const options = {
+    orientation: "landscape",
+    unit: "mm",
+    format: [280, 210],
+  };
+
   return (
-    <div className="container mt-3 mb-4 course-details">
+    <div
+      className="container mt-3 mb-4 course-details"
+      ref={ref}
+      style={{ width: "100vw" }}
+    >
       <div className="d-flex justify-content-between align-items-center flex-column flex-lg-row">
         <h2 className="text-center fs-1 mb-4">
           {course.title} beginner to advanced
         </h2>
-        <button className="btn btn-danger my-4">PDF</button>
+
+        <ReactToPdf
+          targetRef={ref}
+          filename={`${course.title} beginner to advanced.pdf`}
+          options={options}
+          x={0.5}
+          y={0.5}
+          scale={0.8}
+        >
+          {({ toPdf }) => (
+            <button className="btn btn-danger my-4" onClick={toPdf}>
+              PDF
+            </button>
+          )}
+        </ReactToPdf>
       </div>
       <img
         src={course?.banner}

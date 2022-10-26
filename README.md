@@ -9,3 +9,4 @@
 - React Router
 - Firebase
 - React Icons
+- React-to-pdf
