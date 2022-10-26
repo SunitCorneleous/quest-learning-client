@@ -1,10 +1,22 @@
 .App {
-  background-color: #d3e5ff7a;
+  background-color: #ebf6ff;
 }
 
 /* header */
 .header {
   background-color: #ebf6ff;
+}
+
+/* home */
+.home h2 {
+  font-size: 3.8rem;
+}
+.home h3 {
+  font-size: 2rem;
+}
+.home p {
+  font-size: 1.8rem;
+  color: #7f7771;
 }
 
 .courses {
@@ -36,6 +48,7 @@
 .btn {
   background-color: #568eea !important;
   border: none !important;
+  color: #fff !important;
 }
 
 .btn-outline {
@@ -69,5 +82,17 @@
 
   .form {
     width: 85%;
+  }
+
+  /* home */
+  .home h2 {
+    font-size: 2.8rem;
+  }
+  .home h3 {
+    font-size: 1.5rem;
+  }
+  .home p {
+    font-size: 1rem;
+    color: #7f7771;
   }
 }
