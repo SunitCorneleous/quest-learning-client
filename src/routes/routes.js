@@ -1,14 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../components/Blog";
-import Category from "../components/Category";
-import CourseDetails from "../components/CourseDetails";
-import Courses from "../components/Courses";
-import CoursesHome from "../components/CoursesHome";
+import Category from "../components/CoursePage/Category";
+import CheckoutRoute from "../components/CheckoutRoute";
+import CourseDetails from "../components/CoursePage/CourseDetails";
+import Courses from "../components/CoursePage/Courses";
+import CoursesHome from "../components/CoursePage/CoursesHome";
 import Faq from "../components/Faq";
 import Home from "../components/Home";
 import Main from "../layout/Main";
 import LogIn from "./../components/LogIn";
 import Register from "./../components/Register";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +60,14 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Register></Register>,
+      },
+      {
+        path: "/checkout",
+        element: (
+          <PrivateRoute>
+            <CheckoutRoute></CheckoutRoute>
+          </PrivateRoute>
+        ),
       },
     ],
   },

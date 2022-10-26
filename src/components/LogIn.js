@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
@@ -10,6 +10,8 @@ const LogIn = () => {
   const { signInUser } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const submitHandler = event => {
     event.preventDefault();
@@ -26,7 +28,7 @@ const LogIn = () => {
         form.reset();
 
         // navigate to route
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch(error => {
         console.error("error: ", error);

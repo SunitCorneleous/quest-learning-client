@@ -2,8 +2,8 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import LeftSideNav from "./LeftSideNav";
 import { Outlet } from "react-router-dom";
+import LeftSideNav from "./LeftSideNav";
 
 const Courses = () => {
   return (
