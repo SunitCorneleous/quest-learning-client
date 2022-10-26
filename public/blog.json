@@ -1,0 +1,22 @@
+[
+    {
+        "id": "63595d28a998f75c0e9228c0",
+        "question": "1. What is 'cors'?",
+        "answer": "'cors' is cross-origin resource sharing which is a http-header based mechanism which allows a server to indicate any origins other than its own from which a browser should permit loading resources. By default, browsers restrict cross-origin http requests."
+    },
+    {
+        "id": "63595d281d7492f11004751b",
+        "question": "2. Why are you using 'firebase' What other options do you have to implement authentication",
+        "answer": "I am using firebase to implement user authentication for email password, google and another third-party authentication. There are many other firebase alternations which serve the same purpose as firebase for authentication such as OAuth."
+    },
+    {
+        "id": "63595d28e71b2d2f874d6e0e",
+        "question": "3. How does the private route work?",
+        "answer": "Private route checks is the user is logged in if the user is not logged in it redirect to login page and if the user is logged in it redirect to the user desired page. In React this functionality can be implemented by using children props and useLocation hook from react router to store the state of current route."
+    },
+    {
+        "id": "63595d282e2f70698ba58dc4",
+        "question": "What is Node? How does Node work?",
+        "answer": "Node js is an open source, cross platform JavaScript runtime environment used to run JavaScript in server side. Node js runs on chrome v8 engine which converts javascript code into machine code. It is highly scalable, lightweight, fast, and data-intensive. "
+    }
+]

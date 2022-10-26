@@ -30,13 +30,15 @@ export const router = createBrowserRouter([
           {
             path: "/courses",
             element: <CoursesHome></CoursesHome>,
-            loader: () => fetch("http://localhost:5000/courses"),
+            loader: () => fetch("https://quest-learning.vercel.app/courses"),
           },
           {
             path: "/courses/categories/:id",
             element: <Category></Category>,
             loader: ({ params }) =>
-              fetch(`http://localhost:5000/categories/${params.id}`),
+              fetch(
+                `https://quest-learning.vercel.app/categories/${params.id}`
+              ),
           },
         ],
       },
@@ -52,7 +54,7 @@ export const router = createBrowserRouter([
         path: "/course-details/:id",
         element: <CourseDetails></CourseDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
+          fetch(`https://quest-learning.vercel.app/courses/${params.id}`),
       },
       {
         path: "/login",
@@ -70,7 +72,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
+          fetch(`https://quest-learning.vercel.app/courses/${params.id}`),
       },
       {
         path: "/*",

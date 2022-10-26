@@ -1,0 +1,22 @@
+[
+    {
+        "id": "635962ab91605c76670c66af",
+        "question": "1. What is Quest Learning?",
+        "answer": "Quest Learning is an ed tech platform where we offer variety of web technology courses."
+    },
+    {
+        "id": "635962abf6e7ed83096ab031",
+        "question": "2. How I buy course?",
+        "answer": "You have to register and sign in to our website to buy course."
+    },
+    {
+        "id": "635962ab91cc9685e77890b0",
+        "question": "3. Why I am not able to unlock premium feature?",
+        "answer": "To unlock premium feature you have to login."
+    },
+    {
+        "id": "635962ab6b9331fbd1339c24",
+        "question": "4. How can I login?",
+        "answer": "You can login using Google GitHub or email password."
+    }
+]
